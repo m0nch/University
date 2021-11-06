@@ -34,8 +34,10 @@ namespace University
                 {
                     int studentIndex = i * avarageStudents + j;
                     currentTeachersStudets.Add(students[studentIndex]);
+                    students[studentIndex]._teacher = teachers[i];
                 }
                 teachers[i].AssignStudents(currentTeachersStudets);
+
             }
             int leftStudents = avarageStudents + studentCount % teacherCount;
             for (int i = teacherCount-1; i < teacherCount; i++)
@@ -45,16 +47,15 @@ namespace University
                 {
                     int studentIndex = studentCount - leftStudents + j;
                     currentTeachersStudets.Add(students[studentIndex]);
+                    students[studentIndex]._teacher = teachers[i];
                 }
                 teachers[i].AssignStudents(currentTeachersStudets);
             }
         }
 
-
         public void Print()
         {
             List<Teacher> teachers = _teacherServices.GetAll();
-            Console.WriteLine($"Group ");
             for (int i = 0; i < teachers.Count; i++)
             {
                 teachers[i].Print();

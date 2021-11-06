@@ -53,6 +53,18 @@ namespace University
 			}
 
             teachers[3].Print();
+
+            students[3].AssignTeacher(teachers[4]);
+            Console.WriteLine("-", 20);
+            teachers[4].Print();
+
+            students[3].Print();
+
+            Student newStudent = studentServices.Get(students[3]._id);
+            newStudent._name = "John Doe";
+            studentServices.Update(newStudent);
+            students[3].Print();
+
             Console.ReadKey();
 
 
