@@ -37,17 +37,16 @@ namespace University
             }
 
             TeacherServices teacherServices = new TeacherServices(teacherCount);
-            teacherServices.GetAll();
+            teachers = teacherServices.GetAll();
             StudentServices studentServices = new StudentServices(studentCount);
-            studentServices.GetAll();
+            students = studentServices.GetAll();
 
             UniversityServices universityServices = new UniversityServices(studentServices, teacherServices);
             universityServices.Distribute();
 
             universityServices.Print();
-            teachers = teacherServices.GetAll();
             teacherServices.GetGroup(teachers[0]._id);
-            //teachers.Print();
+            teachers[3].Print();
             Console.ReadKey();
 
 
