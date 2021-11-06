@@ -52,6 +52,7 @@ namespace University
             }
             return group;
         }
+
         public void Add(Teacher teacher)
         {
             _teachers.Add(teacher);
@@ -68,7 +69,7 @@ namespace University
             {
                 if (_teachers[i]._id == teacher._id)
                 {
-                    teacher = _teachers[i];
+                    _teachers[i] = teacher;
                 }
             }
         }

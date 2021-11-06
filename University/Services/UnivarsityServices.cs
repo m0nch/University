@@ -22,9 +22,10 @@ namespace University
         {
             List<Student> students = _studentServices.GetAll();
             List<Teacher> teachers = _teacherServices.GetAll();
+
             int studentCount = students.Count;
             int teacherCount = teachers.Count;
-
+            
             int avarageStudents = studentCount / teacherCount;
             for (int i = 0; i < teachers.Count - 1; i++)
             {
@@ -36,22 +37,22 @@ namespace University
                 }
                 teachers[i].AssignStudents(currentTeachersStudets);
             }
-            int leftStudents = studentCount / teacherCount + studentCount % teacherCount;
+            int leftStudents = avarageStudents + studentCount % teacherCount;
             for (int i = teacherCount-1; i < teacherCount; i++)
             {
                 List<Student> currentTeachersStudets = new List<Student>(leftStudents);
                 for (int j = 0; j < leftStudents; j++)
                 {
-                    int studentIndex = (teacherCount - 1) * avarageStudents + j;
+                    int studentIndex = studentCount - leftStudents + j;
                     currentTeachersStudets.Add(students[studentIndex]);
                 }
                 teachers[i].AssignStudents(currentTeachersStudets);
             }
         }
 
+
         public void Print()
         {
-            List<Student> students = _studentServices.GetAll();
             List<Teacher> teachers = _teacherServices.GetAll();
             Console.WriteLine($"Group ");
             for (int i = 0; i < teachers.Count; i++)

@@ -68,7 +68,7 @@ namespace University
             {
                 if (_students[i]._id == student._id)
                 {
-                    student = _students[i];
+                    _students[i] = student;
                 }
             }
         }

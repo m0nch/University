@@ -31,7 +31,7 @@ namespace University
 
         public void Print()
         {
-            Console.WriteLine($"--------------------\nTeacher -- {_name} age -- {_age} ");
+            Console.WriteLine($"--------------------\nTeacher -- {_name} age -- {_age} Id -- {_id}");
             Console.WriteLine("Students list");
             for (int i = 0; i < _students.Count; i++)
             {

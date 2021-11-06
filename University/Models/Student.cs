@@ -31,7 +31,7 @@ namespace University
 
         public void Print()
         {
-            Console.WriteLine($"Name -- {_name} age -- {_age}");
+            Console.WriteLine($"Name -- {_name} age -- {_age} Id -- {_id}");
         }
     }
 }

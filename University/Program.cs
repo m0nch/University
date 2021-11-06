@@ -27,13 +27,13 @@ namespace University
             if (studentCount % teacherCount == 0)
             {
                 studentCountInGroups = studentCount / teacherCount;
-                Console.WriteLine($"In {teacherCount} groups are {studentCountInGroups} students");
+                Console.WriteLine($"\nIn {teacherCount} groups are {studentCountInGroups} students");
             }
             else
             { 
                 studentCountInGroups = studentCount / teacherCount;
                 studentCountInLastGroup = studentCount / teacherCount + studentCount % teacherCount;
-                Console.WriteLine($"In {teacherCount - 1} groups are {studentCountInGroups} students, in last groups are {studentCountInLastGroup} students");
+                Console.WriteLine($"\nIn {teacherCount - 1} groups are {studentCountInGroups} students, in last groups are {studentCountInLastGroup} students");
             }
 
             TeacherServices teacherServices = new TeacherServices(teacherCount);
@@ -43,9 +43,15 @@ namespace University
 
             UniversityServices universityServices = new UniversityServices(studentServices, teacherServices);
             universityServices.Distribute();
-
             universityServices.Print();
-            teacherServices.GetGroup(teachers[0]._id);
+
+            students = teacherServices.GetGroup(teachers[0]._id);
+            Console.WriteLine($"\nThe teacher's group with Id: {teachers[0]._id} \n -----------------------------");
+            for (int i = 0; i < students.Count; i++)
+			{
+                students[i].Print();
+			}
+
             teachers[3].Print();
             Console.ReadKey();
 
