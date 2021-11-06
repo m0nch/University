@@ -36,6 +36,7 @@ namespace University
             }
             return default(Student);
         }
+
         public List<Student> GetAll()
         {
             return _students;
@@ -53,6 +54,7 @@ namespace University
             }
             return group;
         }
+
         public void Add(Student student)
         {
             _students.Add(student);

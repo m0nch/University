@@ -35,6 +35,7 @@ namespace University
             }
             return default(Teacher);
         }
+
         public List<Teacher> GetAll()
         {
             return _teachers;

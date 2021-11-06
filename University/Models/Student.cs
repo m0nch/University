@@ -17,16 +17,12 @@ namespace University
         {
             _id = Guid.NewGuid();
         }
+
         public Student(string name, int age)
         {
             _id = Guid.NewGuid();
             _name = name;
             _age = age;
-        }
-
-        public void AssignTeacher(Teacher teacher)
-        {
-            _teacher = teacher;
         }
 
         public void Print()

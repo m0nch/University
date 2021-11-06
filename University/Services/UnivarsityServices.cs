@@ -11,13 +11,12 @@ namespace University
         TeacherServices _teacherServices;
         StudentServices _studentServices;
 
-        //List<Student> _students;
-        //List<Teacher> _teachers;
         public UniversityServices(StudentServices studentServices, TeacherServices teacherServices)
         {
             _teacherServices = teacherServices;
             _studentServices = studentServices;
         }
+
         public void Distribute()
         {
             List<Student> students = _studentServices.GetAll();
@@ -36,7 +35,7 @@ namespace University
                     currentTeachersStudets.Add(students[studentIndex]);
                     students[studentIndex]._teacher = teachers[i];
                 }
-                teachers[i].AssignStudents(currentTeachersStudets);
+                teachers[i]._students = currentTeachersStudets;
 
             }
             int leftStudents = avarageStudents + studentCount % teacherCount;
@@ -49,7 +48,7 @@ namespace University
                     currentTeachersStudets.Add(students[studentIndex]);
                     students[studentIndex]._teacher = teachers[i];
                 }
-                teachers[i].AssignStudents(currentTeachersStudets);
+                teachers[i]._students = currentTeachersStudets;
             }
         }
 

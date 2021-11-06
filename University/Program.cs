@@ -11,8 +11,8 @@ namespace University
         static void Main(string[] args)
         {
 
-            int studentCountInGroups = default;
-            int studentCountInLastGroup = default;
+            int studentCountInGroups = default(int);
+            int studentCountInLastGroup = default(int);
 
             Console.Write("How many students are in the University: ");
             int studentCount = int.Parse(Console.ReadLine());
@@ -48,18 +48,16 @@ namespace University
             students = teacherServices.GetGroup(teachers[0]._id);
             Console.WriteLine($"\nThe teacher's group with Id: {teachers[0]._id} \n -----------------------------");
             for (int i = 0; i < students.Count; i++)
-			{
+            {
                 students[i].Print();
-			}
-
+            }
             teachers[3].Print();
 
-            students[3].AssignTeacher(teachers[4]);
-            Console.WriteLine("-", 20);
+            students[3]._teacher = teachers[4];
             teachers[4].Print();
-
+            Console.WriteLine("-----------------------------");
             students[3].Print();
-
+            Console.WriteLine("-----------------------------");
             Student newStudent = studentServices.Get(students[3]._id);
             newStudent._name = "John Doe";
             studentServices.Update(newStudent);

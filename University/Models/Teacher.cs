@@ -24,11 +24,6 @@ namespace University
             _name = name;
             _age = age;
         }
-        
-        public void AssignStudents(List<Student> students)  //It's not my idea, this help from a friend
-        {
-            _students = students;
-        }
 
         public void Print()
         {
